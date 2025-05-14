@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { AuthContext } from '../../contexts/AuthContext';
+import { FaEnvelope, FaLock, FaSignInAlt, FaExclamationCircle } from 'react-icons/fa';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +22,6 @@ const Login = () => {
     }
 
     // Simulasi login
-    // Dalam aplikasi nyata, ini akan mengirim permintaan ke backend
     try {
       // Dummy login success
       login({
@@ -39,16 +39,26 @@ const Login = () => {
   return (
     <div className="auth-page">
       <div className="auth-container">
-        <h1>Login</h1>
+        <div className="auth-header">
+          <h1>Masuk</h1>
+          <p>Selamat datang kembali di Kopiku Coffee Shop</p>
+        </div>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && (
+          <div className="error-message">
+            <FaExclamationCircle /> {error}
+          </div>
+        )}
         
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">
+              <FaEnvelope /> Email
+            </label>
             <input
               type="email"
               id="email"
+              placeholder="Masukkan email Anda"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -56,21 +66,34 @@ const Login = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              <FaLock /> Password
+            </label>
             <input
               type="password"
               id="password"
+              placeholder="Masukkan password Anda"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
           
-          <button type="submit" className="btn-auth">Login</button>
+          <div className="form-options">
+            <div className="remember-me">
+              <input type="checkbox" id="remember" />
+              <label htmlFor="remember">Ingat saya</label>
+            </div>
+            <Link to="/forgot-password" className="forgot-password">Lupa password?</Link>
+          </div>
+          
+          <button type="submit" className="btn-auth">
+            <FaSignInAlt /> Masuk
+          </button>
         </form>
         
         <div className="auth-footer">
-          <p>Belum punya akun? <Link to="/register">Daftar</Link></p>
+          <p>Belum punya akun? <Link to="/register">Daftar sekarang</Link></p>
         </div>
       </div>
     </div>

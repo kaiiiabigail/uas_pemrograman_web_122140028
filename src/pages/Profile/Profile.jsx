@@ -1,12 +1,15 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import { AuthContext } from '../../contexts/AuthContext';
+import { FaSignOutAlt, FaEdit, FaUser } from 'react-icons/fa';
 
 const Profile = () => {
-  const { user, updateUser } = useContext(AuthContext);
+  const { user, updateUser, logout } = useContext(AuthContext);
   const [username, setUsername] = useState(user?.username || '');
   const [profileImage, setProfileImage] = useState(user?.profileImage || '');
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   // Contoh data untuk progress bar
   const purchaseCount = user?.purchaseCount || 15;
@@ -31,6 +34,11 @@ const Profile = () => {
     setIsEditing(false);
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <div className="profile-page">
       <div className="profile-container">
@@ -43,7 +51,7 @@ const Profile = () => {
                 <img src={profileImage} alt="Profile" className="profile-image" />
               ) : (
                 <div className="profile-image-placeholder">
-                  {username.charAt(0).toUpperCase()}
+                  <FaUser />
                 </div>
               )}
               {isEditing && (
@@ -85,12 +93,20 @@ const Profile = () => {
             ) : (
               <div className="profile-info">
                 <h2>{username}</h2>
-                <button 
-                  className="btn-edit"
-                  onClick={() => setIsEditing(true)}
-                >
-                  Edit Profil
-                </button>
+                <div className="profile-actions">
+                  <button 
+                    className="btn-edit"
+                    onClick={() => setIsEditing(true)}
+                  >
+                    <FaEdit /> Edit Profil
+                  </button>
+                  <button 
+                    className="btn-logout"
+                    onClick={handleLogout}
+                  >
+                    <FaSignOutAlt /> Logout
+                  </button>
+                </div>
               </div>
             )}
           </div>

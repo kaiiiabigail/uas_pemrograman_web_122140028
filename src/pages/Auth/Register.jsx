@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { AuthContext } from '../../contexts/AuthContext';
+import { FaUser, FaEnvelope, FaLock, FaUserPlus, FaExclamationCircle } from 'react-icons/fa';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -28,7 +29,6 @@ const Register = () => {
     }
 
     // Simulasi registrasi
-    // Dalam aplikasi nyata, ini akan mengirim permintaan ke backend
     try {
       // Dummy register success
       register({
@@ -46,16 +46,26 @@ const Register = () => {
   return (
     <div className="auth-page">
       <div className="auth-container">
-        <h1>Daftar</h1>
+        <div className="auth-header">
+          <h1>Daftar</h1>
+          <p>Bergabunglah dengan Kopiku Coffee Shop</p>
+        </div>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && (
+          <div className="error-message">
+            <FaExclamationCircle /> {error}
+          </div>
+        )}
         
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">
+              <FaUser /> Username
+            </label>
             <input
               type="text"
               id="username"
+              placeholder="Masukkan username Anda"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -63,10 +73,13 @@ const Register = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">
+              <FaEnvelope /> Email
+            </label>
             <input
               type="email"
               id="email"
+              placeholder="Masukkan email Anda"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -74,10 +87,13 @@ const Register = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              <FaLock /> Password
+            </label>
             <input
               type="password"
               id="password"
+              placeholder="Masukkan password Anda"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -85,21 +101,33 @@ const Register = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="confirmPassword">Konfirmasi Password</label>
+            <label htmlFor="confirmPassword">
+              <FaLock /> Konfirmasi Password
+            </label>
             <input
               type="password"
               id="confirmPassword"
+              placeholder="Konfirmasi password Anda"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>
           
-          <button type="submit" className="btn-auth">Daftar</button>
+          <div className="form-terms">
+            <input type="checkbox" id="terms" required />
+            <label htmlFor="terms">
+              Saya menyetujui <Link to="/terms">Syarat dan Ketentuan</Link>
+            </label>
+          </div>
+          
+          <button type="submit" className="btn-auth">
+            <FaUserPlus /> Daftar
+          </button>
         </form>
         
         <div className="auth-footer">
-          <p>Sudah punya akun? <Link to="/login">Login</Link></p>
+          <p>Sudah punya akun? <Link to="/login">Masuk</Link></p>
         </div>
       </div>
     </div>
