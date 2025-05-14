@@ -1,0 +1,165 @@
+.checkout-success-page {
+  padding: 60px 20px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+}
+
+.success-container {
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+}
+
+.success-logo {
+  height: 35px;
+  width: auto;
+}
+
+.success-icon {
+  font-size: 70px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.success-container h1 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.success-message {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.order-info {
+  margin: 30px 0;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: left;
+  border: 1px solid #eee;
+  width: 100%;
+}
+
+.order-info h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+}
+
+.order-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #eee;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.detail-value {
+  color: #333;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.btn-home, .btn-shop {
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.btn-home {
+  background-color: #333;
+  color: #fff;
+  flex: 1;
+  max-width: 200px;
+}
+
+.btn-home:hover {
+  background-color: #555;
+}
+
+.btn-shop {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #333;
+  flex: 1;
+  max-width: 200px;
+}
+
+.btn-shop:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .success-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn-home, .btn-shop {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .success-container {
+    padding: 30px 20px;
+  }
+
+  .success-icon {
+    font-size: 60px;
+  }
+}
