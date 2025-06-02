@@ -1,0 +1,243 @@
+.hero {
+  height: 500px;
+  background-image: url('../../assets/images/bg.jpg');
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  margin-left: 50px;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.featured-items {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-items h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.categories-section {
+  padding: 60px 20px;
+  background-color: #f1f1f1;
+}
+
+.categories-header {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.categories-header h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.category-card p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+@media (max-width: 992px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 400px;
+  }
+  
+  .hero-content {
+    margin-left: 30px;
+    max-width: 80%;
+  }
+  
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  
+  .hero-content h2 {
+    font-size: 20px;
+  }
+  
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-content h1 {
+    font-size: 30px;
+  }
+}
+
+/* Modern Menu Page Styles */
+.menu-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px 48px 16px;
+  background: var(--coffee-cream, #f5e9da);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44,22,8,0.08);
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.menu-header h1 {
+  color: var(--coffee-brown, #2c1608);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+.menu-header p {
+  color: var(--coffee-brown-light, #7c5c3b);
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.menu-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--coffee-brown-light, #7c5c3b);
+  margin: 48px 0;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.pagination-btn {
+  background: #fff8e1;
+  color: var(--coffee-orange, #ff9800);
+  border: 1.5px solid var(--coffee-orange, #ff9800);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(44,22,8,0.06);
+}
+.pagination-btn.active, .pagination-btn:hover {
+  background: var(--coffee-orange, #ff9800);
+  color: #fff;
+  border-color: var(--coffee-orange, #ff9800);
+  box-shadow: 0 4px 16px rgba(255,152,0,0.10);
+}
+
+@media (max-width: 900px) {
+  .menu-page {
+    padding: 16px 2vw 32px 2vw;
+  }
+  .menu-header h1 {
+    font-size: 2rem;
+  }
+  .menu-items-grid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-header h1 {
+    font-size: 1.5rem;
+  }
+  .menu-header p {
+    font-size: 1rem;
+  }
+  .menu-items-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .menu-page {
+    padding: 8px 0 24px 0;
+  }
+}
